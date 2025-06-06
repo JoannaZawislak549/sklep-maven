@@ -3,6 +3,7 @@ package com.comarch.szkolenie.sklep.core;
 import com.comarch.szkolenie.sklep.authentication.Authenticator;
 import com.comarch.szkolenie.sklep.authentication.IAuthenticator;
 import com.comarch.szkolenie.sklep.database.IProductRepository;
+import com.comarch.szkolenie.sklep.database.IUserRepository;
 import com.comarch.szkolenie.sklep.exceptions.FailedAuthenticationException;
 import com.comarch.szkolenie.sklep.gui.IGUI;
 import com.comarch.szkolenie.sklep.model.User;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class Core implements ICore {
     private final IProductRepository productRepository;
+    private final IUserRepository userRepository;
     private final IAuthenticator authenticator;
     private final IGUI gui;
 
@@ -74,6 +76,8 @@ public class Core implements ICore {
                     } break;
                 case "3":
                     run = false;
+                    this.productRepository.persist();
+                    this.userRepository.persist();
                     break;
 
             }

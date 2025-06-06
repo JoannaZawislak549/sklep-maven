@@ -24,7 +24,7 @@ public class GUI implements IGUI {
                 "zrobić?");
         System.out.println("1. Przejrzeć listę produktów");
         System.out.println(Authenticator.currentUserRole == User.Role.ADMIN ? "2. Dodać produkt" : "2. Kupić produkt");
-        System.out.println("3. Wyjść");
+        System.out.println("3. Wylogować");
 
         return scanner.nextLine();
     }

@@ -1,0 +1,6 @@
+1;Jogurt owocowy;Jogurt owocowy 250g, smak truskawkowy;2026-01-25;12
+2;Jogurt owocowy;Jogurt owocowy 250g, smak malinowy;2025-09-20;10
+3;Jogurt naturalny mały;Jogurt naturalny 250g, mały;2025-07-19;8
+4;Jogurt naturalny duży;Jogurt naturalny 500g, duży;2025-07-20;9
+5;Jajka opakowanie;Jajka z wolnego wybiegu opakowanie 10 szt.;2025-05-30;10
+6;Chleb żytni;Chleb żytni pełnoziarnisty, 200g;2025-05-09;10

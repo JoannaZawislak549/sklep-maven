@@ -65,9 +65,9 @@ public class ProductRepository implements IProductRepository{
         product.setQuantity(currQuantity + quantity);
     }
 
+    @Override
     public void persist(){
-        try{
-        BufferedWriter writer = new BufferedWriter((new FileWriter(DB_FILE)));
+        try (BufferedWriter writer = new BufferedWriter((new FileWriter(DB_FILE)))){
             for(Product product : getProducts()) {
             writer.write(product.convertToDatabaseLine());
             writer.newLine();

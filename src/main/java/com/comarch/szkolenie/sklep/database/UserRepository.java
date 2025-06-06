@@ -1,14 +1,19 @@
 package com.comarch.szkolenie.sklep.database;
 
+import com.comarch.szkolenie.sklep.model.Product;
 import com.comarch.szkolenie.sklep.model.User;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 @Component
 public class UserRepository implements IUserRepository{
+    private final String DB_FILE = "users.txt" ;
     private final Map<String, User> users = new HashMap<>();
 
 
@@ -29,6 +34,17 @@ public void register(String login, String password){
         String hash = DigestUtils.md5Hex(toHashPassword);
         this.users.put(login, new User(login, hash, User.Role.USER));
 }
+
+    public void persist(){
+        try (BufferedWriter writer = new BufferedWriter((new FileWriter(DB_FILE)))){
+            for(User user : this.users.values()) {
+                writer.write(user.convertToDatabaseLine());
+                writer.newLine();
+            }
+        } catch (IOException e){
+            System.out.println("Nie działa zapisywanie!");
+        }
+    }
 
 
 }

@@ -6,8 +6,9 @@ import java.util.Collection;
 
 public interface IProductRepository {
 
-    public boolean checkIfAvailable(int id, int wantedQuantity);
-    public double prizeCalculator(int id, int quantity);
-    public void addProductQuantity(int id, int quantity);
-    public Collection<Product> getProducts();
+    boolean checkIfAvailable(int id, int wantedQuantity);
+    double prizeCalculator(int id, int quantity);
+    void addProductQuantity(int id, int quantity);
+    Collection<Product> getProducts();
+    void persist();
 }
