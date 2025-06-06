@@ -3,6 +3,9 @@ package com.comarch.szkolenie.sklep.database;
 import com.comarch.szkolenie.sklep.model.Product;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,6 +14,7 @@ import java.util.Map;
 @Component
 public class ProductRepository implements IProductRepository{
     private final Map<Integer, Product> products;
+    private final String DB_FILE = "products.txt";
 
     private ProductRepository(){
         this.products = new HashMap<>();
@@ -59,5 +63,17 @@ public class ProductRepository implements IProductRepository{
         Product product = this.products.get(id);
         int currQuantity = product.getQuantity();
         product.setQuantity(currQuantity + quantity);
+    }
+
+    public void persist(){
+        try{
+        BufferedWriter writer = new BufferedWriter((new FileWriter(DB_FILE)));
+            for(Product product : getProducts()) {
+            writer.write(product.convertToDatabaseLine());
+            writer.newLine();
+            }
+        } catch (IOException e){
+            System.out.println("Nie działa zapisywanie!");
+            }
     }
 }

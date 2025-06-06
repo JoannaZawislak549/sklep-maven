@@ -3,7 +3,7 @@ package com.comarch.szkolenie.sklep.gui;
 import com.comarch.szkolenie.sklep.model.User;
 
 public interface IGUI {
-    public int showMenuAndReadChoice();
+    public String showMenuAndReadChoice();
     public void showProducts();
     public void buyProducts();
     public int chooseProduct();
@@ -15,5 +15,5 @@ public interface IGUI {
     public String createLogin();
     public String createPassword();
     public String confirmPassword();
-    public int confirmCreatingAccount();
+    public String confirmCreatingAccount(String login, String password);
 }

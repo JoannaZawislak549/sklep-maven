@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Getter
@@ -32,6 +33,11 @@ public class Product {
                 .append(this.getQuantity())
                 .toString();
 
+    }
+
+    public String convertToDatabaseLine(){
+        return String.join(";", this.id+"", this.name, this.description,
+                this.expirationDate+"", String.valueOf(this.quantity));
     }
 }
 
