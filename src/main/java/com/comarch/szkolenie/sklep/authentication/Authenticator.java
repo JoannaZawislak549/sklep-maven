@@ -5,7 +5,6 @@ import com.comarch.szkolenie.sklep.exceptions.FailedAuthenticationException;
 import com.comarch.szkolenie.sklep.model.User;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component

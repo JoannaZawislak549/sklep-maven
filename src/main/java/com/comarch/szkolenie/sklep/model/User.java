@@ -27,7 +27,7 @@ public class User {
 
 
     public String convertToDatabaseLine(){
-        return String.join(";",  this.name, this.password,
+        return String.join(";",  "USER", this.name, this.password,
                 this.role+"");
     }
 

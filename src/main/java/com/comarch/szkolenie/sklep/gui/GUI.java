@@ -44,6 +44,7 @@ public class GUI implements IGUI {
         if (canBeSold){
             System.out.println("Twoja należność to: " +
                     this.productRepository.prizeCalculator(chosenId, chosenQuant));
+            this.productRepository.addProductQuantity(chosenId, -chosenQuant);
 
         }else{
             System.out.println("Przepraszamy, nie ma na stanie tyle towaru!");
@@ -121,6 +122,8 @@ public class GUI implements IGUI {
         System.out.println("2. Wyjść");
         return scanner.nextLine();
     }
+
+
 
 
 

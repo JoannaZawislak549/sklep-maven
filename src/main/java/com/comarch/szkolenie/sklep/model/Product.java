@@ -36,8 +36,8 @@ public class Product {
     }
 
     public String convertToDatabaseLine(){
-        return String.join(";", this.id+"", this.name, this.description,
-                this.expirationDate+"", String.valueOf(this.quantity));
+        return String.join(";", "PRODUCT", this.id+"", this.name, this.description,
+                this.prize+"", this.expirationDate+"", String.valueOf(this.quantity));
     }
 }
 

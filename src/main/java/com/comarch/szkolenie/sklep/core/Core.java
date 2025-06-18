@@ -73,7 +73,10 @@ public class Core implements ICore {
                         productRepository.addProductQuantity(gui.chooseProductToAdd(), gui.chooseQuantity());
                     } else {
                         gui.buyProducts();
-                    } break;
+                    }
+                    productRepository.persist();
+                    break;
+
                 case "3":
                     run = false;
                     this.productRepository.persist();
